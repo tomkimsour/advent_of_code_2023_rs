@@ -11,7 +11,18 @@ publish = false
 doctest = false
 
 [features]
+linked_list_remove = []
 test_lib = []
 
 [dependencies]
 pico-args = "0.5.0"
+itertools = { version = "0.12"}
+regex = { version = "1.10.2"}
+derive_more = "0.99.17"
+
+[profile.dev]
+opt-level = 2
+
+[profile.release]
+debug = true
+overflow-checks = true
