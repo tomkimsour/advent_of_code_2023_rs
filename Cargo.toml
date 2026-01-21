@@ -1,6 +1,6 @@
 [package]
 name = "advent_of_code"
-version = "0.9.2"
+version = "0.11.0"
 authors = ["Felix Spöttel <1682504+fspoettel@users.noreply.github.com>"]
 edition = "2021"
 default-run = "advent_of_code"
@@ -10,15 +10,24 @@ publish = false
 [lib]
 doctest = false
 
+[profile.dhat]
+inherits = "release"
+debug = 1
+
 [features]
 linked_list_remove = []
+dhat-heap = ["dhat"]
+today = ["chrono"]
 test_lib = []
 
 [dependencies]
 pico-args = "0.5.0"
-itertools = { version = "0.12"}
-regex = { version = "1.10.2"}
-derive_more = "0.99.17"
+itertools = { version = "0.13"}
+regex = { version = "1.11.1"}
+derive_more = { version = "1", features = ["full"] }
+chrono = { version = "0.4.38", optional = true }
+dhat = { version = "0.3.3", optional = true }
+tinyjson = "2.5.1"
 
 [profile.dev]
 opt-level = 2
